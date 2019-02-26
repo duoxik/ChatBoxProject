@@ -28,4 +28,8 @@ public class ClientGuiModel {
     public void deleteUser(String userName) {
         allUserNames.remove(userName);
     }
+
+    public void deleteAllUsers() {
+        allUserNames.clear();
+    }
 }

@@ -1,5 +1,7 @@
 package com.duoxik.chatbox.client;
 
+import java.io.IOException;
+
 public class ClientGuiController extends Client {
 
     private ClientGuiModel model = new ClientGuiModel();
@@ -11,8 +13,8 @@ public class ClientGuiController extends Client {
     }
 
     @Override
-    protected void run() {
-        getSocketThread().run();
+    public void run() {
+        getSocketThread().start();
     }
 
     @Override
@@ -32,6 +34,14 @@ public class ClientGuiController extends Client {
 
     public ClientGuiModel getModel() {
         return model;
+    }
+
+    public void abortConnection() {
+        try {
+            connection.close();
+        } catch (IOException e) {}
+        model.deleteAllUsers();
+        view.refreshUsers();
     }
 
     public class GuiSocketThread extends Client.SocketThread {
@@ -62,6 +72,6 @@ public class ClientGuiController extends Client {
     }
 
     public static void main(String[] args) {
-        new ClientGuiController().run();
+        new ClientGuiController();
     }
 }

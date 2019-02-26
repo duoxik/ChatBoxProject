@@ -12,6 +12,7 @@ public class ClientGuiView {
     private JTextField textField = new JTextField(50);
     private JTextArea messages = new JTextArea(10, 50);
     private JTextArea users = new JTextArea(10, 10);
+    private JButton connectionButton = new JButton("Connect to the server...");
 
     public ClientGuiView(ClientGuiController controller) {
         this.controller = controller;
@@ -23,7 +24,20 @@ public class ClientGuiView {
         messages.setEditable(false);
         users.setEditable(false);
 
-        frame.getContentPane().add(textField, BorderLayout.NORTH);
+        connectionButton.setActionCommand("connect");
+        connectionButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (e.getActionCommand().equals("connect")) {
+                    controller.run();
+                } else {
+                    controller.abortConnection();
+                }
+            }
+        });
+
+        frame.getContentPane().add(connectionButton, BorderLayout.NORTH);
+        frame.getContentPane().add(textField, BorderLayout.SOUTH);
         frame.getContentPane().add(new JScrollPane(messages), BorderLayout.WEST);
         frame.getContentPane().add(new JScrollPane(users), BorderLayout.EAST);
         frame.pack();
@@ -78,15 +92,20 @@ public class ClientGuiView {
         if (clientConnected) {
             JOptionPane.showMessageDialog(
                     frame,
-                    "Соединение с сервером установлено",
+                    "Соединение с сервером установлено...",
                     "Чат",
                     JOptionPane.INFORMATION_MESSAGE);
+            connectionButton.setText("Disconnect from the server...");
+            connectionButton.setActionCommand("disconnect");
         } else {
             JOptionPane.showMessageDialog(
                     frame,
-                    "Клиент не подключен к серверу",
+                    "Клиент отключен от сервера...",
                     "Чат",
                     JOptionPane.ERROR_MESSAGE);
+
+            connectionButton.setText("Connect to the server...");
+            connectionButton.setActionCommand("connect");
         }
 
     }
