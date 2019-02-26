@@ -11,7 +11,7 @@ public class ClientGuiController extends Client {
     }
 
     @Override
-    public void run() {
+    protected void run() {
         getSocketThread().run();
     }
 

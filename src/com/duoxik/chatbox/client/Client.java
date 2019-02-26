@@ -44,7 +44,7 @@ public class Client {
         }
     }
 
-    public void run() {
+    protected void run() {
 
         SocketThread socketThread = getSocketThread();
         socketThread.setDaemon(true);
