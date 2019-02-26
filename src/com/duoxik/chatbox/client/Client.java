@@ -137,18 +137,22 @@ public class Client {
 
         public void run() {
 
-            try {
-                String serverAdress = getServerAddress();
-                int serverPort = getServerPort();
-                Socket socket = new Socket(serverAdress, serverPort);
-                connection = new Connection(socket);
+            String serverAdress = getServerAddress();
+            int serverPort = getServerPort();
 
+            try {
+                Connection connection = new Connection(new Socket(serverAdress, serverPort));
                 clientHandshake();
                 clientMainLoop();
-
             } catch (IOException | ClassNotFoundException e) {
                 notifyConnectionStatusChanged(false);
                 ConsoleHelper.writeMessage(e.getMessage());
+            } finally {
+                try {
+                    connection.close();
+                } catch (IOException e) {
+                    ConsoleHelper.writeMessage(e.getMessage());
+                }
             }
         }
     }
