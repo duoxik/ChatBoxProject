@@ -141,7 +141,7 @@ public class Client {
             int serverPort = getServerPort();
 
             try {
-                Connection connection = new Connection(new Socket(serverAdress, serverPort));
+                connection = new Connection(new Socket(serverAdress, serverPort));
                 clientHandshake();
                 clientMainLoop();
             } catch (IOException | ClassNotFoundException e) {

@@ -12,7 +12,7 @@ public class Server {
 
     public static void main(String[] args) {
         
-        int serverPort = ConsoleHelper.readInt();
+        int serverPort = 27015; /*ConsoleHelper.readInt();*/
 
         try (
                 ServerSocket serverSocket = new ServerSocket(serverPort)
