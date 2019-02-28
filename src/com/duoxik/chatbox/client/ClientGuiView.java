@@ -24,6 +24,10 @@ public class ClientGuiView {
         messages.setEditable(false);
         users.setEditable(false);
 
+        messages.setFont(new Font("Serif", Font.ITALIC, 16));
+        messages.setLineWrap(true);
+        messages.setWrapStyleWord(true);
+
         connectionButton.setActionCommand("connect");
         connectionButton.addActionListener(new ActionListener() {
             @Override
