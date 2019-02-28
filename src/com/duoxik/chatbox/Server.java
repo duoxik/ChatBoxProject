@@ -1,8 +1,7 @@
 package com.duoxik.chatbox;
 
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
+import java.net.*;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -12,13 +11,12 @@ public class Server {
 
     public static void main(String[] args) {
         
-        int serverPort = 27015; /*ConsoleHelper.readInt();*/
+        int serverPort = 27015;
 
         try (
                 ServerSocket serverSocket = new ServerSocket(serverPort)
         ) {
             ConsoleHelper.writeMessage("Сервер запущен...");
-
             while (true) {
                 Socket socket = serverSocket.accept();
                 new Handler(socket).start();
@@ -55,10 +53,7 @@ public class Server {
                 connection.send(new Message(MessageType.NAME_REQUEST));
                 Message userName = connection.receive();
 
-                if (    userName != null &&
-                        userName.getType().equals(MessageType.USER_NAME) &&
-                        userName.getData() != null &&
-                        !userName.getData().isEmpty() &&
+                if (    userName.getType().equals(MessageType.USER_NAME) &&
                         !connectionMap.containsKey(userName.getData())
                 ) {
                     connectionMap.put(userName.getData(), connection);

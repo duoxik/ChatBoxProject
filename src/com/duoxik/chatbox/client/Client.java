@@ -11,7 +11,7 @@ import java.net.Socket;
 public class Client {
 
     protected Connection connection;
-    private volatile boolean clientConnected = false;
+    protected volatile boolean clientConnected = false;
 
     protected String getServerAddress() {
         return ConsoleHelper.readString();
