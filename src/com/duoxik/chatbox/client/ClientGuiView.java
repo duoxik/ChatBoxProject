@@ -16,7 +16,7 @@ public class ClientGuiView {
     private JTextArea users = new JTextArea(10, 10);
     private JButton connectionButton = new JButton("Connect to the server...");
 
-    private String serverAdress;
+    private String serverAddress;
     private int serverPort;
 
 
@@ -81,7 +81,7 @@ public class ClientGuiView {
             public void actionPerformed(ActionEvent e) {
                 if (validIP(ipField.getText()) &&
                         validPort(portField.getText())) {
-                    serverAdress = ipField.getText();
+                    serverAddress = ipField.getText();
                     serverPort = Integer.parseInt(portField.getText());
                     controller.run();
                     hideIpPortFrame();
@@ -120,7 +120,7 @@ public class ClientGuiView {
     }
 
     public String getServerAddress() {
-        return serverAdress;
+        return serverAddress;
     }
 
     public int getServerPort() {
