@@ -10,7 +10,7 @@ public class Server {
     private static Map<String, Connection> connectionMap = new ConcurrentHashMap<>();
 
     public static void main(String[] args) {
-        
+
         int serverPort = 27015;
 
         try (
@@ -111,9 +111,7 @@ public class Server {
                 notifyUsers(connection, userName);
                 serverMainLoop(connection, userName);
 
-            } catch (IOException | ClassNotFoundException e) {
-                ConsoleHelper.writeMessage(e.getMessage());
-            }
+            } catch (IOException | ClassNotFoundException e) {}
 
             if (userName != null) {
                 connectionMap.remove(userName);

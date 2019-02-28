@@ -41,7 +41,7 @@ public class ClientGuiController extends Client {
             connection.close();
         } catch (IOException e) {}
         model.deleteAllUsers();
-        view.refreshUsers();
+        view.clearFrame();
     }
 
     public class GuiSocketThread extends Client.SocketThread {
