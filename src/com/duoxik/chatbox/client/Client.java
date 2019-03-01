@@ -44,6 +44,12 @@ public class Client {
         }
     }
 
+    protected void abortConnection() {
+        try {
+            connection.close();
+        } catch (IOException e) {}
+    }
+
     protected void run() {
 
         SocketThread socketThread = getSocketThread();

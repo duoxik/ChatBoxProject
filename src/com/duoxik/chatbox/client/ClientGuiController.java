@@ -36,10 +36,10 @@ public class ClientGuiController extends Client {
         return model;
     }
 
+    @Override
     public void abortConnection() {
-        try {
-            connection.close();
-        } catch (IOException e) {}
+
+        super.abortConnection();
         model.deleteAllUsers();
         view.clearFrame();
     }
