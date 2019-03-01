@@ -36,7 +36,7 @@ public class ConnectJFrame extends JFrame {
         JTextField userNameField = new JTextField(32);
         ipField.setText("localhost");
         portField.setText("27015");
-        userNameField.setText("user_nickname");
+        userNameField.setText("ChatBoxUser");
 
         JLabel addressLabel = new JLabel("Server Nickname or Address:");
         JLabel portLabel = new JLabel("Server port:");
