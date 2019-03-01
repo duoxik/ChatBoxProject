@@ -1,7 +1,9 @@
-package com.duoxik.chatbox.client;
+package com.duoxik.chatbox.client.view;
 
-import com.duoxik.chatbox.client.gui.ConnectJFrame;
-import com.duoxik.chatbox.client.gui.MainJFrame;
+import com.duoxik.chatbox.client.ClientGuiController;
+import com.duoxik.chatbox.client.ClientGuiModel;
+import com.duoxik.chatbox.client.view.gui.ConnectJFrame;
+import com.duoxik.chatbox.client.view.gui.MainJFrame;
 
 public class ClientGuiView {
     private final ClientGuiController controller;
@@ -46,11 +48,19 @@ public class ClientGuiView {
         mainJFrame.clearFrame();
     }
 
-    public ClientGuiController getController() {
-        return controller;
-    }
-
     public void showConnectFrame() {
         connectJFrame.setVisible(true);
+    }
+
+    public void connectToServer() {
+        controller.run();
+    }
+
+    public void abortConnection() {
+        controller.abortConnection();
+    }
+
+    public void sendTextMessage(String text) {
+        controller.sendTextMessage(text);
     }
 }

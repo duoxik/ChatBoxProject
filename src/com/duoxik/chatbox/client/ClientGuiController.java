@@ -1,5 +1,7 @@
 package com.duoxik.chatbox.client;
 
+import com.duoxik.chatbox.client.view.ClientGuiView;
+
 public class ClientGuiController extends Client {
 
     private ClientGuiModel model = new ClientGuiModel();

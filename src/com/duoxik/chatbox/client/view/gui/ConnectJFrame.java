@@ -1,6 +1,6 @@
-package com.duoxik.chatbox.client.gui;
+package com.duoxik.chatbox.client.view.gui;
 
-import com.duoxik.chatbox.client.ClientGuiView;
+import com.duoxik.chatbox.client.view.ClientGuiView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -77,7 +77,7 @@ public class ConnectJFrame extends JFrame {
                     serverAddress = ipField.getText();
                     serverPort = Integer.parseInt(portField.getText());
                     userName = userNameField.getText();
-                    view.getController().run();
+                    view.connectToServer();
                     setVisible(false);
                 } else {
                     setVisible(false);

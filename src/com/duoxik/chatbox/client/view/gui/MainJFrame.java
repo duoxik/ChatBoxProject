@@ -1,6 +1,6 @@
-package com.duoxik.chatbox.client.gui;
+package com.duoxik.chatbox.client.view.gui;
 
-import com.duoxik.chatbox.client.ClientGuiView;
+import com.duoxik.chatbox.client.view.ClientGuiView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -26,7 +26,6 @@ public class MainJFrame extends JFrame {
         setResizable(false);
         setJMenuBar(menuBar);
 
-        textField.setEditable(false);
         users.setEditable(false);
         messages.setFont(new Font("Serif", Font.ITALIC, 16));
         messages.setLineWrap(true);
@@ -36,7 +35,7 @@ public class MainJFrame extends JFrame {
         textField.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                view.getController().sendTextMessage(textField.getText());
+                view.sendTextMessage(textField.getText());
                 textField.setText("");
             }
         });

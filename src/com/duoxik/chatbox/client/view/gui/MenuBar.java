@@ -1,6 +1,6 @@
-package com.duoxik.chatbox.client.gui;
+package com.duoxik.chatbox.client.view.gui;
 
-import com.duoxik.chatbox.client.ClientGuiView;
+import com.duoxik.chatbox.client.view.ClientGuiView;
 
 import javax.swing.*;
 import java.awt.*;
@@ -51,14 +51,14 @@ public class MenuBar extends JMenuBar {
         itemDisconnect.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                view.getController().abortConnection();
+                view.abortConnection();
             }
         });
 
         itemQuit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                view.getController().abortConnection();
+                view.abortConnection();
                 System.exit(0);
             }
         });
