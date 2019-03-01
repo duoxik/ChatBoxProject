@@ -1,7 +1,5 @@
 package com.duoxik.chatbox.client;
 
-import java.io.IOException;
-
 public class ClientGuiController extends Client {
 
     private ClientGuiModel model = new ClientGuiModel();
