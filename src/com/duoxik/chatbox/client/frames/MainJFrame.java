@@ -14,7 +14,6 @@ public class MainJFrame extends JFrame {
     private JTextField textField = new JTextField(50);
     private JTextArea messages = new JTextArea(10, 40);
     private JTextArea users = new JTextArea(10, 10);
-    private JButton connectionButton = new JButton("Connect to the server...");
 
     public MainJFrame(ClientGuiView view) {
         super("ChatBox v1.0");
@@ -23,6 +22,7 @@ public class MainJFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(600, 300);
         setResizable(false);
+        setJMenuBar(new MenuBar(view));
 
         textField.setEditable(false);
         users.setEditable(false);
@@ -30,18 +30,6 @@ public class MainJFrame extends JFrame {
         messages.setLineWrap(true);
         messages.setWrapStyleWord(true);
         messages.setEditable(false);
-
-        connectionButton.setActionCommand("connect");
-        connectionButton.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (e.getActionCommand().equals("connect")) {
-                    view.showIpPortFrame();
-                } else {
-                    view.getController().abortConnection();
-                }
-            }
-        });
 
         textField.addActionListener(new ActionListener() {
             @Override
@@ -51,7 +39,6 @@ public class MainJFrame extends JFrame {
             }
         });
 
-        getContentPane().add(connectionButton, BorderLayout.NORTH);
         getContentPane().add(textField, BorderLayout.SOUTH);
         getContentPane().add(new JScrollPane(messages), BorderLayout.WEST);
         getContentPane().add(new JScrollPane(users), BorderLayout.EAST);
@@ -81,17 +68,12 @@ public class MainJFrame extends JFrame {
                     "Соединение с сервером установлено...",
                     "Чат",
                     JOptionPane.INFORMATION_MESSAGE);
-            connectionButton.setText("Disconnect from the server...");
-            connectionButton.setActionCommand("disconnect");
         } else {
             JOptionPane.showMessageDialog(
                     this,
                     "Клиент отключен от сервера...",
                     "Чат",
                     JOptionPane.INFORMATION_MESSAGE);
-
-            connectionButton.setText("Connect to the server...");
-            connectionButton.setActionCommand("connect");
         }
     }
 }
