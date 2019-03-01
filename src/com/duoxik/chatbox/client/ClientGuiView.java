@@ -1,7 +1,9 @@
-package com.duoxik.chatbox.client.view;
+package com.duoxik.chatbox.client;
 
 import com.duoxik.chatbox.client.ClientGuiController;
 import com.duoxik.chatbox.client.ClientGuiModel;
+import com.duoxik.chatbox.client.view.ConnectJFrame;
+import com.duoxik.chatbox.client.view.MainJFrame;
 
 public class ClientGuiView {
     private final ClientGuiController controller;
@@ -46,17 +48,11 @@ public class ClientGuiView {
         mainJFrame.clearFrame();
     }
 
-    ClientGuiController getController() {
+    public ClientGuiController getController() {
         return controller;
     }
 
-    void showIpPortFrame() {
+    public void showIpPortFrame() {
         connectJFrame.setVisible(true);
-    }
-
-    void hideIpPortFrame() {
-
-        mainJFrame.setEnabled(true);
-        connectJFrame.setVisible(false);
     }
 }

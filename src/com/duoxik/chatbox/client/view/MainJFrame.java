@@ -1,5 +1,7 @@
 package com.duoxik.chatbox.client.view;
 
+import com.duoxik.chatbox.client.ClientGuiView;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
