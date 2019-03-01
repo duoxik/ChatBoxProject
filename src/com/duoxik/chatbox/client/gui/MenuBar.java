@@ -1,4 +1,4 @@
-package com.duoxik.chatbox.client.frames;
+package com.duoxik.chatbox.client.gui;
 
 import com.duoxik.chatbox.client.ClientGuiView;
 

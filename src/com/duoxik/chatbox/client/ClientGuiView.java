@@ -1,7 +1,7 @@
 package com.duoxik.chatbox.client;
 
-import com.duoxik.chatbox.client.frames.ConnectJFrame;
-import com.duoxik.chatbox.client.frames.MainJFrame;
+import com.duoxik.chatbox.client.gui.ConnectJFrame;
+import com.duoxik.chatbox.client.gui.MainJFrame;
 
 public class ClientGuiView {
     private final ClientGuiController controller;
