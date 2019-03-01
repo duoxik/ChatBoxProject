@@ -33,7 +33,7 @@ public class Client {
         return new SocketThread();
     }
 
-    protected void sendTextMessage(String text) {
+    public void sendTextMessage(String text) {
 
         try {
             Message message = new Message(MessageType.TEXT, text);
