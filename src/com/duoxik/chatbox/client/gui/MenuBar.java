@@ -9,11 +9,13 @@ import java.awt.event.ActionListener;
 
 public class MenuBar extends JMenuBar {
 
+    private final JMenuItem itemDisconnect;
+
     public MenuBar(ClientGuiView view) {
 
         JMenu connectionsMenu = new JMenu("Connections");
         JMenuItem itemConnect = new JMenuItem("Connect");
-        JMenuItem itemDisconnect = new JMenuItem("Disconnect");
+        itemDisconnect = new JMenuItem("Disconnect");
         JMenuItem itemQuit = new JMenuItem("Quit");
         connectionsMenu.add(itemConnect);
         connectionsMenu.add(itemDisconnect);
@@ -36,6 +38,8 @@ public class MenuBar extends JMenuBar {
         itemQuit.setFont(new Font(Font.SANS_SERIF, 0, 11));
         itemAbout.setFont(new Font(Font.SANS_SERIF, 0, 11));
         itemAddToBookmarks.setFont(new Font(Font.SANS_SERIF, 0, 11));
+
+        itemDisconnect.setEnabled(false);
 
         itemConnect.addActionListener(new ActionListener() {
             @Override
@@ -64,5 +68,13 @@ public class MenuBar extends JMenuBar {
         add(connectionsMenu);
         add(bookmarksMenu);
         add(helpMenu);
+    }
+
+    public void disableItemDisconnect() {
+        itemDisconnect.setEnabled(false);
+    }
+
+    public void enableItemDisconnect() {
+        itemDisconnect.setEnabled(true);
     }
 }

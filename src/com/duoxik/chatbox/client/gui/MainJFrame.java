@@ -14,15 +14,17 @@ public class MainJFrame extends JFrame {
     private JTextField textField = new JTextField(50);
     private JTextArea messages = new JTextArea(10, 40);
     private JTextArea users = new JTextArea(10, 10);
+    private final MenuBar menuBar;
 
     public MainJFrame(ClientGuiView view) {
         super("ChatBox v1.0");
         this.view = view;
+        this.menuBar = new MenuBar(view);
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocation(600, 300);
         setResizable(false);
-        setJMenuBar(new MenuBar(view));
+        setJMenuBar(menuBar);
 
         textField.setEditable(false);
         users.setEditable(false);
@@ -61,14 +63,15 @@ public class MainJFrame extends JFrame {
     }
 
     public void notifyConnectionStatusChanged(boolean clientConnected) {
-        textField.setEditable(clientConnected);
         if (clientConnected) {
+            menuBar.enableItemDisconnect();
             JOptionPane.showMessageDialog(
                     this,
                     "Соединение с сервером установлено...",
                     "Чат",
                     JOptionPane.INFORMATION_MESSAGE);
         } else {
+            menuBar.disableItemDisconnect();
             JOptionPane.showMessageDialog(
                     this,
                     "Клиент отключен от сервера...",
