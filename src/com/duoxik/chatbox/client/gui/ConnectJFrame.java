@@ -90,6 +90,13 @@ public class ConnectJFrame extends JFrame {
                 }
             }
         });
+
+        cancelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                setVisible(false);
+            }
+        });
     }
 
     public String getServerAddress() {
