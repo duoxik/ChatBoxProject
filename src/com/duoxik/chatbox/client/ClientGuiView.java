@@ -50,7 +50,7 @@ public class ClientGuiView {
         return controller;
     }
 
-    public void showIpPortFrame() {
+    public void showConnectFrame() {
         connectJFrame.setVisible(true);
     }
 }
