@@ -44,6 +44,20 @@ public class MenuBar extends JMenuBar {
             }
         });
 
+        itemDisconnect.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.getController().abortConnection();
+            }
+        });
+
+        itemQuit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                view.getController().abortConnection();
+                System.exit(0);
+            }
+        });
 
         setBackground(new Color(239, 235, 231));
 
